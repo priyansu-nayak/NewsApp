@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 
 import React, { Component } from 'react'
+import Navbar from './components/Navbar';
 
 export default class App extends Component {
+  c = 'John';
   render() {
     return (
-      <div>
-        
-      </div>
+      <>
+       <Navbar/>
+      </>
     )
   }
 }
