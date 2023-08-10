@@ -7,24 +7,20 @@ export class News extends Component {
             <div className='container my-3 '>
                 <h2>NewsMonkey- Top Headlines</h2>
 
+
                 <div className="row" >
                     <div className="col-md-3">
                         <NewsItem title="myTitle " description="Kya baat hai bhai" />
                     </div>
                     <div className="col-md-3">
-                        <NewsItem title=" " />
+                        <NewsItem title="myTitle " description="Kya baat hai bhai" />
                     </div>
                     <div className="col-md-3">
-                        <NewsItem title=" " />
+                        <NewsItem title="myTitle " description="Kya baat hai bhai" />
                     </div>
-
                 </div>
 
-                <div className="row" >
-                    <NewsItem title=" " />
-                    <NewsItem title=" " />
-                    <NewsItem title=" " />
-                </div>
+
 
             </div>
         )
