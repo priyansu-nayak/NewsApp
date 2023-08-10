@@ -40,7 +40,8 @@ export class News extends Component {
         this.state = {
             // articles: this.articles,
             articles:[],
-            loading: false
+            loading: false,
+            page:1
         }
     }
 
@@ -71,7 +72,10 @@ export class News extends Component {
                     })}
                 </div>
 
-
+                <div className="container ">
+                <button type="button" class="btn btn-dark">Previous</button>
+                <button type="button" class="btn btn-dark">Next</button>
+                </div>
 
             </div>
         )
