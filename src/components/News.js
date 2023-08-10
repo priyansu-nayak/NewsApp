@@ -42,15 +42,28 @@ export class News extends Component {
             "urlToImage": "https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1219926_1296x729.jpg",
             "publishedAt": "2020-03-30T15:26:05Z",
             "content": "Last week, we at ESPNcricinfo did something we have been thinking of doing for eight years now: pretend-live ball-by-ball commentary for a classic cricket match. We knew the result, yes, but we tried… [+6823 chars]"
-        }
+        },
+        {
+            "source": {
+              "id": "talksport",
+              "name": "TalkSport"
+            },
+            "author": "161385360554578",
+            "title": "Bayern to submit £94m Kane bid, Man City offer £70m for Paqueta, Raya to join Arsenal",
+            "description": "talkSPORT.com brings you all the latest football news, insight and transfer gossip. Check out the headline stories and follow our live blog below for regular updates throughout the day. Headlines: …",
+            "url": "https://talksport.com/football/1486182/football-news-live-harry-kane-tottenham-chelsea-liverpool/",
+            "urlToImage": "https://talksport.com/wp-content/uploads/sites/5/2023/08/OQ-TALKSPORT-BLOG-9TH-AUG.jpg?strip=all&quality=100&w=1500&h=1000&crop=1",
+            "publishedAt": "2023-08-09T07:15:04Z",
+            "content": "Brighton CEO Paul Barber admits Moises Caicedo has been ‘unsettled’ by the Chelsea transfer saga.\r\nHe insists the Seagulls are still hoping to keep the player at the club this summer, although admits… [+1326 chars]"
+          }
     ];
 
     constructor() {
         super();
         console.log("Hello I am a constructor from News component");
         this.state = {
-            articles:this.articles,
-            loading:false
+            articles: this.articles,
+            loading: false
 
         }
     }
@@ -60,17 +73,14 @@ export class News extends Component {
             <div className='container my-3 '>
                 <h2>NewsMonkey- Top Headlines</h2>
 
-
                 <div className="row" >
-                    <div className="col-md-3">
-                        <NewsItem title="myTitle " description="Kya baat hai bhai" imageUrl="https://ichef.bbci.co.uk/news/1024/cpsprodpb/1049F/production/_130691766_p0g5jzy2.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="myTitle " description="Kya baat hai bhai" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="myTitle " description="Kya baat hai bhai" />
-                    </div>
+                    { this.state.articles.map((element) => {
+                        return <div className="col-md-3">
+                            <NewsItem title={element.title} description={element.description}
+                                imageUrl={element.urlToImage}
+                                newsUrl={element.url} />
+                        </div>
+                    })}
                 </div>
 
 
