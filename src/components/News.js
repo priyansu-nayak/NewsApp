@@ -45,8 +45,8 @@ export class News extends Component {
         },
         {
             "source": {
-              "id": "talksport",
-              "name": "TalkSport"
+                "id": "talksport",
+                "name": "TalkSport"
             },
             "author": "161385360554578",
             "title": "Bayern to submit £94m Kane bid, Man City offer £70m for Paqueta, Raya to join Arsenal",
@@ -55,7 +55,7 @@ export class News extends Component {
             "urlToImage": "https://talksport.com/wp-content/uploads/sites/5/2023/08/OQ-TALKSPORT-BLOG-9TH-AUG.jpg?strip=all&quality=100&w=1500&h=1000&crop=1",
             "publishedAt": "2023-08-09T07:15:04Z",
             "content": "Brighton CEO Paul Barber admits Moises Caicedo has been ‘unsettled’ by the Chelsea transfer saga.\r\nHe insists the Seagulls are still hoping to keep the player at the club this summer, although admits… [+1326 chars]"
-          }
+        }
     ];
 
     constructor() {
@@ -74,12 +74,14 @@ export class News extends Component {
                 <h2>NewsMonkey- Top Headlines</h2>
 
                 <div className="row" >
-                    { this.state.articles.map((element) => {
-                        return <div className="col-md-3">
-                            <NewsItem title={element.title} description={element.description}
-                                imageUrl={element.urlToImage}
-                                newsUrl={element.url} />
+                    {this.state.articles.map((element) => {
+                        return (
+                        <div className="col-md-4" key={element.url}>
+                            <NewsItem title={element.title.slice(0,45)} description={element.description.slice(0,80)}
+                                imageUrl={element.urlToImage} newsUrl={element.url}
+                            />
                         </div>
+                        )
                     })}
                 </div>
 
