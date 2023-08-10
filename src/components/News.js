@@ -10,7 +10,7 @@ export class News extends Component {
 
                 <div className="row" >
                     <div className="col-md-3">
-                        <NewsItem title="myTitle " description="Kya baat hai bhai" />
+                        <NewsItem title="myTitle " description="Kya baat hai bhai" imageUrl="https://ichef.bbci.co.uk/news/1024/cpsprodpb/1049F/production/_130691766_p0g5jzy2.jpg" />
                     </div>
                     <div className="col-md-3">
                         <NewsItem title="myTitle " description="Kya baat hai bhai" />
