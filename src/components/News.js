@@ -33,29 +33,33 @@ export class News extends Component {
         }
     ];
     */
-   
+
     constructor() {
         super();
-        console.log("Hello I am a constructor from News component");
+        console.log("Constructor from News component");
         this.state = {
             // articles: this.articles,
-            articles:[],
+            articles: [],
             loading: false,
-            page:1
+            page: 1
         }
     }
 
     async componentDidMount() {
+        console.log("componentDidMount")
         let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f";
+
         let data = await fetch(url);
+        console.log("data", data)
         let parsedData = await data.json()
-        console.log(parsedData);
-        this.setState({articles:parsedData.articles})
+        console.log("parsedData", parsedData);
+        this.setState({ articles: parsedData.articles })
     }
 
 
 
     render() {
+        console.log("render()")
         return (
             <div className='container my-3 '>
                 <h1>NewsMonkey- Top Headlines</h1>
@@ -64,7 +68,7 @@ export class News extends Component {
                     {this.state.articles.map((element) => {
                         return (
                             <div className="col-md-4" key={element.url}>
-                                <NewsItem title={element.title?element.title.slice(0, 45):""} description={element.description?element.description.slice(0, 80):""}
+                                <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""}
                                     imageUrl={element.urlToImage} newsUrl={element.url}
                                 />
                             </div>
@@ -72,9 +76,9 @@ export class News extends Component {
                     })}
                 </div>
 
-                <div className="container ">
-                <button type="button" class="btn btn-dark">Previous</button>
-                <button type="button" class="btn btn-dark">Next</button>
+                <div className="container d-flex justify-content-between">
+                    <button type="button" class="btn btn-dark"> &larr; Previous</button>
+                    <button type="button" class="btn btn-dark">Next  &rarr;</button>
                 </div>
 
             </div>
