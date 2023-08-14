@@ -96,7 +96,7 @@ export class News extends Component {
         return (
             <div className='container my-3 '>
                 <h1 className='text-center'>NewsMonkey- Top Headlines</h1>
-                <Spinner />
+                {this.state.loading && <Spinner />}
                 <div className="row" >
                     {this.state.articles.map((element) => {
                         return (
