@@ -71,12 +71,10 @@ export class News extends Component {
     }
 
     handleNextClick = async () => {
-        // if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
-
-        // }
-        // else {
+        if (!this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
 
             let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            
             let data = await fetch(url);
             let parsedData = await data.json()
 
@@ -85,7 +83,7 @@ export class News extends Component {
                 page: this.state.page + 1
             })
 
-        // }
+        }
 
 
     }
