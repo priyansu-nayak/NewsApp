@@ -47,7 +47,7 @@ export class News extends Component {
 
     async componentDidMount() {
         console.log("componentDidMount")
-        let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=1&pageSize=20";
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=1&pageSize=${pageSize}`;
 
         let data = await fetch(url);
 
@@ -58,7 +58,7 @@ export class News extends Component {
 
 
     handlePrevClick = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page - 1}&pageSize=20`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page - 1}&pageSize=${pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json()
 
@@ -75,7 +75,7 @@ export class News extends Component {
         // }
         // else {
 
-            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page + 1}&pageSize=20`;
+            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page + 1}&pageSize=${pageSize}`;
             let data = await fetch(url);
             let parsedData = await data.json()
 
@@ -94,7 +94,7 @@ export class News extends Component {
         console.log("render()")
         return (
             <div className='container my-3 '>
-                <h1>NewsMonkey- Top Headlines</h1>
+                <h1 className='text-center'>NewsMonkey- Top Headlines</h1>
 
                 <div className="row" >
                     {this.state.articles.map((element) => {
