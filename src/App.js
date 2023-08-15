@@ -6,7 +6,7 @@ import News from './components/News';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default class App extends Component {
-  c = 'John';
+  
   render() {
     return (
       <>
