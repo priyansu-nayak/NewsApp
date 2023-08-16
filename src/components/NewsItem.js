@@ -12,12 +12,12 @@ export class NewsItem extends Component {
                     <div className="card-body">
                         <h5 className="card-title">{title}
                             
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                                 {source}
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                             
-                            <h5>Example heading <span class="badge bg-secondary">New</span>
+                            <h5>Example heading <span class="badge bg-danger">New</span>
 
                             </h5>
                         </h5>
