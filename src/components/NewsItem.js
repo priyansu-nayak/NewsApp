@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class NewsItem extends Component {
 
     render() {
-        let { title, description, imageUrl, newsUrl, author, date } = this.props;
+        let { title, description, imageUrl, newsUrl, author, date,source } = this.props;
 
         return (
             <div className='my-3'>
@@ -13,12 +13,11 @@ export class NewsItem extends Component {
                         <h5 className="card-title">{title}
                             
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                99+
+                                {source}
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                             
                             <h5>Example heading <span class="badge bg-secondary">New</span>
-
 
                             </h5>
                         </h5>
