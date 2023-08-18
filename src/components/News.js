@@ -113,6 +113,8 @@ export class News extends Component {
         //     loading:false
         // })
 
+        this.setState({page:this.state.page - 1 })
+        this.updateNews()
     }
 
     handleNextClick = async () => {
@@ -129,6 +131,8 @@ export class News extends Component {
         //         loading: false
         //     });
         // }
+        this.setState({page:this.state.page + 1 })
+        this.updateNews()
     }
 
 
