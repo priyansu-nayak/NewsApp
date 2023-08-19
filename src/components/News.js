@@ -58,6 +58,8 @@ export class News extends Component {
             loading: false,
             page: 1
         }
+
+        document.title= this.props.category;
     }
 
     async updateNews(pageNo){
