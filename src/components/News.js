@@ -109,7 +109,7 @@ export class News extends Component {
         this.updateNews()
     }
 
-
+/*
     handlePrevClick = async () => {
         // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         // this.setState({loading:true})
@@ -144,7 +144,17 @@ export class News extends Component {
         this.setState({ page: this.state.page + 1 })
         this.updateNews()
     }
+*/
 
+
+    fetchMoreData = () => {
+        
+        setTimeout(() => {
+          this.setState({
+            items: this.state.items.concat(Array.from({ length: 20 }))
+          });
+        }, 1500);
+      };
 
     render() {
 
@@ -177,10 +187,10 @@ export class News extends Component {
                 </InfiniteScroll>
 
                     
-                <div className="container d-flex justify-content-between">
+                {/* <div className="container d-flex justify-content-between">
                     <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
                     <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}> Next  &rarr;</button>
-                </div>
+                </div> */}
 
             </div>
         )
