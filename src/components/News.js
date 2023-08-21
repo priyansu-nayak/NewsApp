@@ -61,7 +61,8 @@ export class News extends Component {
             // articles: this.articles,
             articles: [],
             loading: false,
-            page: 1
+            page: 1,
+            totalResults:0
         }
 
         document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMonkey`;
@@ -81,7 +82,8 @@ export class News extends Component {
         this.setState({
             articles: parsedData.articles,
             totalResults: parsedData.totalResults,
-            loading: false
+            loading: false,
+            
         })
     }
 
@@ -152,9 +154,9 @@ export class News extends Component {
                 {/* {this.state.loading && <Spinner />} */}
 
                 <InfiniteScroll
-                    dataLength={this.state.items.length}
+                    dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
-                    hasMore={true}
+                    hasMore={this.state.articles.length!==this.totalResults}
                     loader={<h4>Loading...</h4>}
                 >
 
