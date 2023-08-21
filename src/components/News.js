@@ -147,7 +147,7 @@ export class News extends Component {
     */
 
 
-    fetchMoreData = () => {
+    fetchMoreData = async () => {
 
         this.setState({ page: this.state.page + 1 });
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -161,12 +161,12 @@ export class News extends Component {
         let parsedData = await data.json()
 
         this.setState({
-            articles: parsedData.articles,
+            articles: this.state.articles.concat(parsedData.articles),
             totalResults: parsedData.totalResults,
             loading: false,
 
         })
-        
+
     };
 
     render() {
@@ -183,20 +183,26 @@ export class News extends Component {
                     loader={<h4>Loading...</h4>}
                 >
 
+                    <div className="container">
 
-                    <div className="row" >
-                        {!this.state.loading && this.state.articles.map((element) => {
-                            return (
-                                <div className="col-md-4" key={element.url}>
-                                    <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""}
-                                        imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt}
-                                        source={element.source.name}
-                                    />
+                        <div className="row" >
+                            {!this.state.loading && this.state.articles.map((element) => {
+                                return (
+                                    <div className="col-md-4" key={element.url}>
+                                        <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""}
+                                            imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt}
+                                            source={element.source.name}
+                                        />
 
-                                </div>
-                            )
-                        })}
+                                    </div>
+                                )
+                            })}
+                        </div>
+
                     </div>
+
+
+
                 </InfiniteScroll>
 
 
