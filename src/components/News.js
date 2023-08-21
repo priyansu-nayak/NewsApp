@@ -60,7 +60,7 @@ export class News extends Component {
         this.state = {
             // articles: this.articles,
             articles: [],
-            loading: false,
+            loading: true,
             page: 1,
             totalResults: 0
         }
@@ -172,7 +172,7 @@ export class News extends Component {
     render() {
 
         return (
-            <div className='container my-3 '>
+            <>
                 <h1 className='text-center' style={{ margin: '35px 0px' }} >NewsMonkey- Top Headlines from {this.capitalizeFirstLetter(this.props.category)}</h1>
                 {/* {this.state.loading && <Spinner />} */}
 
@@ -211,7 +211,7 @@ export class News extends Component {
                     <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}> Next  &rarr;</button>
                 </div> */}
 
-            </div>
+            </>
         )
     }
 }
