@@ -152,10 +152,6 @@ export class News extends Component {
         this.setState({ page: this.state.page + 1 });
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
-        this.setState({
-            loading: true
-        })
-
         let data = await fetch(url);
 
         let parsedData = await data.json()
@@ -180,7 +176,7 @@ export class News extends Component {
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length !== this.totalResults}
-                    loader={<h4>Loading...</h4>}
+                    loader={this.state.loading && <Spinner />}
                 >
 
                     <div className="container">
