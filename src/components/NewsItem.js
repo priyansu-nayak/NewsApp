@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // export class NewsItem extends Component {
 const NewsItem = (props) => {
