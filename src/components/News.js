@@ -72,8 +72,8 @@ export class News extends Component {
         
         this.props.setProgress(10);
         
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+//b10258dc32624b63b34b96b5e083de1f
         this.setState({
             loading: true
         })
