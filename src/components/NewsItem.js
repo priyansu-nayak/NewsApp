@@ -9,9 +9,14 @@ export class NewsItem extends Component {
             <div className='my-3'>
                 <div className="card" style={{ width: 18 + 'rem' }}  >
 
-                    <div>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        position: 'absolute',
+                        right: 0
+                    }}>
 
-                        <span className="badge rounded-pill bg-primary" style={{ zIndex: 1, left: '90%' }}>
+                        <span className="badge rounded-pill bg-primary" >
                             {source}
                             <span className="visually-hidden">unread messages</span>
                         </span>
