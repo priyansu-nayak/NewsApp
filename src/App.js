@@ -9,7 +9,7 @@ import LoadingBar from 'react-top-loading-bar';
 export default class App extends Component {
 
   pageSize = 100;
-  const[progress, setProgress] = useState(0)
+  
 
   render() {
 
@@ -20,7 +20,7 @@ export default class App extends Component {
           <Navbar />
           <LoadingBar
             color='#f11946'
-            progress={progress}
+            progress={10}
             
           />
           <Routes>
