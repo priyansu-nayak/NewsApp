@@ -25,12 +25,17 @@ export default class App extends Component {
     return (
       <>
         <Router>
+          
           <Navbar />
+          
           <LoadingBar
+            height={3}
             color='#f11946'
             progress={this.state.progress}
 
           />
+
+
           <Routes>
             <Route exact path='/' element={<News setProgress={this.setProgress} key='general' pageSize={this.pageSize} country='us' category='general' />}></Route>
 
@@ -47,6 +52,8 @@ export default class App extends Component {
             <Route exact path='/technology' element={<News setProgress={this.setProgress} key='technology' pageSize={this.pageSize} country='us' category='technology' />}></Route>
 
           </Routes>
+
+          
         </Router>
       </>
     )
