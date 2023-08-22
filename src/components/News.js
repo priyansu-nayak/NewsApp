@@ -69,6 +69,9 @@ export class News extends Component {
     }
 
     async updateNews(pageNo) {
+        
+        this.props.setProgress(0);
+        
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=b10258dc32624b63b34b96b5e083de1f&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
         this.setState({
@@ -85,6 +88,8 @@ export class News extends Component {
             loading: false,
 
         })
+
+        this.props.setProgress(100);
     }
 
 
