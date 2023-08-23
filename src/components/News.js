@@ -59,7 +59,15 @@ const News = (props) => {
         this.updateNews() //effect or first 
     }, []) //don't want to listen to any other stuff
     
+
+    const handlePrevClick = async () =>{
+        this.setState({
+            page:this.state.page-1
+        });
+        this.updateNews();
+    }
     
+
     fetchMoreData = async () => {
 
         this.setState({ page: this.state.page + 1 });
