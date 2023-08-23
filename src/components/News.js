@@ -61,12 +61,15 @@ const News = (props) => {
     
 
     const handlePrevClick = async () =>{
-        this.setState({
-            page:this.state.page-1
-        });
+        this.setState({ page:this.state.page-1 });
         this.updateNews();
     }
-    
+
+    const handleNextClick = async () => {
+        this.setState({page:this.state.page + 1});
+        this.updateNews();
+    }
+
 
     fetchMoreData = async () => {
 
