@@ -10,34 +10,18 @@ const News = (props) => {
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
 
-    capitalizeFirstLetter = (string) => {
+    const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
-    // constructor(props) {
-    //     super(props);
-    //     console.log("Constructor from News component");
-    //     this.state = {
-    //         // articles: this.articles,
-    //         articles: [],
-    //         loading: true,
-    //         page: 1,
-    //         totalResults: 0
-    //     }
-
-    //     document.title = `${this.capitalizeFirstLetter(props.category)} - NewsMonkey`;
-    // }
 
     const updateNews = async () => {
 
         props.setProgress(10);
 
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${this.state.page}&pageSize=${props.pageSize}`;
-
-        this.setState({
-            loading: true
-        })
-
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+        
+        setLoading(true)
+        
         props.setProgress(30);
 
         let data = await fetch(url);
