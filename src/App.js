@@ -6,10 +6,10 @@ import News from './components/News';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 
-export default class App extends Component {
+const App = () => {
 
   pageSize = 5;
-  apiKey=process.env.REACT_APP_NEWS_API
+  apiKey = process.env.REACT_APP_NEWS_API
 
   state = {
     progress: 0
@@ -19,16 +19,12 @@ export default class App extends Component {
     this.setState({ progress: progress })
   }
 
-
-  render() {
-
-
     return (
       <>
         <Router>
-          
+
           <Navbar />
-          
+
           <LoadingBar
             height={3}
             color='#f11946'
@@ -54,9 +50,11 @@ export default class App extends Component {
 
           </Routes>
 
-          
+
         </Router>
       </>
     )
-  }
+  
 }
+
+export default App();
