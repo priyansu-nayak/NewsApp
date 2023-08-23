@@ -37,6 +37,7 @@ const updateNews = async () =>  {
         this.setState({
             loading: true
         })
+        
         props.setProgress(30);
 
         let data = await fetch(url);
