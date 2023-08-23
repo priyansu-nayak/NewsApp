@@ -81,13 +81,13 @@ const News = (props) => {
                 dataLength={articles.length}
                 next={fetchMoreData}
                 hasMore={articles.length !== totalResults}
-                loader={this.state.loading && <Spinner />}
+                loader={<Spinner />}
             >
 
                 <div className="container">
 
                     <div className="row" >
-                        {!this.state.loading && this.state.articles.map((element, index) => {
+                        {articles.map((element, index) => {
                             return (
                                 <div className="col-md-4" key={index}>
                                     <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""}
