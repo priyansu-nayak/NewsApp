@@ -39,6 +39,7 @@ const News = (props) => {
     }
 
     useEffect(() => {
+        document.title=`${capitalizeFirstLetter(props.category)}-NewsMonkey`
         updateNews();  //effect or first 
         //eslint-disable-next-line
     }, []) //don't want to listen to any other stuff
