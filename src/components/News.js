@@ -58,7 +58,8 @@ const News = (props) => {
 
     const fetchMoreData = async () => {
 
-        this.setState({ page: this.state.page + 1 });
+        
+        setPage(page+1)
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
         let data = await fetch(url);
@@ -73,13 +74,13 @@ const News = (props) => {
 
     return (
         <>
-            <h1 className='text-center' style={{ margin: '35px 0px' }} >NewsMonkey- Top Headlines from {this.capitalizeFirstLetter(props.category)}</h1>
-            {/* {this.state.loading && <Spinner />} */}
+            <h1 className='text-center' style={{ margin: '35px 0px' }} >NewsMonkey- Top Headlines from {capitalizeFirstLetter(props.category)}</h1>
+            {loading && <Spinner />}
 
             <InfiniteScroll
-                dataLength={this.state.articles.length}
-                next={this.fetchMoreData}
-                hasMore={this.state.articles.length !== this.totalResults}
+                dataLength={articles.length}
+                next={fetchMoreData}
+                hasMore={articles.length !== totalResults}
                 loader={this.state.loading && <Spinner />}
             >
 
