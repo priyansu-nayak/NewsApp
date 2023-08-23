@@ -37,7 +37,7 @@ const updateNews = async () =>  {
         this.setState({
             loading: true
         })
-        
+
         props.setProgress(30);
 
         let data = await fetch(url);
@@ -46,12 +46,10 @@ const updateNews = async () =>  {
         let parsedData = await data.json()
         props.setProgress(80)
 
-        this.setState({
-            articles: parsedData.articles,
-            totalResults: parsedData.totalResults,
-            loading: false,
-
-        })
+        setArticles(parsedData.articles)
+        setTotalResults(parsedData.totalResults)
+        setLoading(false)
+        
         props.setProgress(100)
 
         
