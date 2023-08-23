@@ -1,37 +1,37 @@
-import React ,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const News =(props)=> {
-    const [articles,setArticles]=useState([]);
-    const [loading,setLoading]=useState(true);
-    const [page,setPage]=useState(1);
-    const [totalResults,setTotalResults]=useState(0);
+const News = (props) => {
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [totalResults, setTotalResults] = useState(0);
 
     capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    constructor(props) {
-        super(props);
-        console.log("Constructor from News component");
-        this.state = {
-            // articles: this.articles,
-            articles: [],
-            loading: true,
-            page: 1,
-            totalResults: 0
-        }
+    // constructor(props) {
+    //     super(props);
+    //     console.log("Constructor from News component");
+    //     this.state = {
+    //         // articles: this.articles,
+    //         articles: [],
+    //         loading: true,
+    //         page: 1,
+    //         totalResults: 0
+    //     }
 
-        document.title = `${this.capitalizeFirstLetter(props.category)} - NewsMonkey`;
-    }
+    //     document.title = `${this.capitalizeFirstLetter(props.category)} - NewsMonkey`;
+    // }
 
-const updateNews = async () =>  {
-        
+    const updateNews = async () => {
+
         props.setProgress(10);
-        
+
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${this.state.page}&pageSize=${props.pageSize}`;
 
         this.setState({
@@ -42,17 +42,17 @@ const updateNews = async () =>  {
 
         let data = await fetch(url);
         props.setProgress(50);
-        
+
         let parsedData = await data.json()
         props.setProgress(80)
 
         setArticles(parsedData.articles)
         setTotalResults(parsedData.totalResults)
         setLoading(false)
-        
+
         props.setProgress(100)
 
-        
+
     }
 
 
@@ -150,7 +150,7 @@ const updateNews = async () =>  {
                     <div className="container">
 
                         <div className="row" >
-                            {!this.state.loading && this.state.articles.map((element,index) => {
+                            {!this.state.loading && this.state.articles.map((element, index) => {
                                 return (
                                     <div className="col-md-4" key={index}>
                                         <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 80) : ""}
