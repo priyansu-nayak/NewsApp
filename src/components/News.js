@@ -19,9 +19,9 @@ const News = (props) => {
         props.setProgress(10);
 
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-        
+
         setLoading(true)
-        
+
         props.setProgress(30);
 
         let data = await fetch(url);
@@ -41,22 +41,22 @@ const News = (props) => {
     useEffect(() => {
         updateNews() //effect or first 
     }, []) //don't want to listen to any other stuff
-    
 
-    const handlePrevClick = async () =>{
-        
-        setPage(page-1)
+
+    const handlePrevClick = async () => {
+
+        setPage(page - 1)
         updateNews();
     }
 
     const handleNextClick = async () => {
-        
-        setPage(page+1)
+
+        setPage(page + 1)
         updateNews();
     }
 
 
-    fetchMoreData = async () => {
+    const fetchMoreData = async () => {
 
         this.setState({ page: this.state.page + 1 });
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
@@ -67,7 +67,7 @@ const News = (props) => {
 
         setArticles(articles.concat(parsedData.articles))
         setTotalResults(parsedData.totalResults)
-        
+
 
     };
 
