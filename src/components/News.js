@@ -45,7 +45,7 @@ const News = (props) => {
 
     const handlePrevClick = async () =>{
         
-        setPage(page+1)
+        setPage(page-1)
         updateNews();
     }
 
@@ -59,18 +59,15 @@ const News = (props) => {
     fetchMoreData = async () => {
 
         this.setState({ page: this.state.page + 1 });
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${this.state.page}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
 
         let data = await fetch(url);
 
         let parsedData = await data.json()
 
-        this.setState({
-            articles: this.state.articles.concat(parsedData.articles),
-            totalResults: parsedData.totalResults,
-            loading: false,
-
-        })
+        setArticles(articles.concat(parsedData.articles))
+        setTotalResults(parsedData.totalResults)
+        
 
     };
 
