@@ -39,7 +39,7 @@ const News = (props) => {
     }
 
     useEffect(() => {
-        updateNews() //effect or first 
+        updateNews();  //effect or first 
     }, []) //don't want to listen to any other stuff
 
 
