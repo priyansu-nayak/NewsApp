@@ -36,7 +36,6 @@ const News = (props) => {
 
         props.setProgress(100)
 
-
     }
 
     useEffect(() => {
