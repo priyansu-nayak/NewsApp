@@ -40,6 +40,7 @@ const News = (props) => {
 
     useEffect(() => {
         updateNews();  //effect or first 
+        //eslint-disable-next-line
     }, []) //don't want to listen to any other stuff
 
 
