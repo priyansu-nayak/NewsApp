@@ -56,16 +56,12 @@ const News = (props) => {
     }
 
     useEffect(() => {
-        first
-
-        return () => {
-            second
-        }
-    }, [third])
+        this.updateNews() //effect or first 
+    }, []) //don't want to listen to any other stuff
+    
     
 
     async componentDidMount() {
-        this.updateNews()
     }
 
 
@@ -118,7 +114,7 @@ const News = (props) => {
                 </div>
 
             </InfiniteScroll>
-            
+
         </>
     )
 
