@@ -60,11 +60,6 @@ const News = (props) => {
     }, []) //don't want to listen to any other stuff
     
     
-
-    async componentDidMount() {
-    }
-
-
     fetchMoreData = async () => {
 
         this.setState({ page: this.state.page + 1 });
