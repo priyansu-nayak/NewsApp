@@ -28,7 +28,7 @@ const News =()=> {
         document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMonkey`;
     }
 
-    async updateNews(pageNo) {
+const updateNews = async () =>  {
         
         this.props.setProgress(10);
         
